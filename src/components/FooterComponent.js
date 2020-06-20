@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer(props) {
     return (
@@ -19,25 +20,25 @@ function Footer(props) {
                     <div className="col-md-4 text-center">
                         <h7>Sell</h7>
                         <ul className="list-unstyled">
-                            <li><a href="#">Sell on melomato</a></li>
-                            <li><a href="#">Teams</a></li>
+                            <li><Link to='/home'>Sell on melomato</Link></li>
+                            <li><Link to='/home'>Teams</Link></li>
                         </ul>
                     </div>
                     <div className="col-md-4 text-center">
                         <h7>About</h7>
                         <ul className="list-unstyled">
-                            <li><a href="#">melomato, Inc.</a></li>
-                            <li><a href="#">Policies</a></li>
-                            <li><a href="#">Investors</a></li>
-                            <li><a href="#">Press</a></li>
+                            <li><Link to='/home'>melomato, Inc.</Link></li>
+                            <li><Link to='/home'>Policies</Link></li>
+                            <li><Link to='/home'>Investors</Link></li>
+                            <li><Link to='/home'>Press</Link></li>
                         </ul>
                     </div>
                     <div className="col-md-4 text-center">
                         <h7>Help</h7>
                         <ul className="list-unstyled">
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Privacy Setting</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><Link to='/home'>Help Center</Link></li>
+                            <li><Link to='/home'>Privacy Setting</Link></li>
+                            <li><Link to='/home'>Contact Us</Link></li>
                         </ul>
                     </div>
                 </div>

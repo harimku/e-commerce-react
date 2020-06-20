@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
-import { Jumbotron } from 'reactstrap';
+import { Nav, Navbar, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
 import ReactSearchBox from 'react-search-box';
-
+import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
 
@@ -24,7 +24,44 @@ class Header extends Component {
                     </div>
                 </Jumbotron>
 
+                <Navbar light sticky="top" expand="md">
+                    <div className="container">
+                        <NavbarToggler onClick={this.toggleNav} />
+                            <Nav navbar>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/">
+                                        Home & Decor
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/directory">
+                                        Automotive
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/aboutus">
+                                        Electronics
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/contactus">
+                                        Fashion
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/contactus">
+                                        Outdoors
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/contactus">
+                                        Pet
+                                    </NavLink>
+                                </NavItem>
 
+                            </Nav>
+                    </div>
+                </Navbar>
                     
 
             </React.Fragment>
