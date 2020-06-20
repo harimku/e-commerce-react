@@ -10,3 +10,27 @@ body {
   font-style: normal;
   font-size: 40px;
 }
+
+.site-footer {
+  background-color: white;
+  margin: 0 0 0 0;
+  padding: 30px 0px 0px 0px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  color: black;
+  text-align: center; 
+}
+
+.site-footer .list-unstyled a {
+  color: #989898; 
+}
+
+.site-footer .btn-custom {
+  background-color: white;
+  border-color: #989898;
+  color: #FF7171; 
+}
+
+.site-footer .form-custom {
+  border-color: #989898; 
+}
