@@ -2,6 +2,33 @@ body {
   font-family: "inter", sans-serif;
 }
 
+.btn-custom {
+  font-weight: light;
+  font-size: 15px;
+  text-align: center;
+  align-items: center;
+  letter-spacing: 0.3px;
+  color: #FF7171;
+}
+
+.card {
+  border: transparent;
+}
+.card .card-img {
+  object-fit: cover;
+  border-radius: 5px;
+  position: relative;
+}
+.card .card-stuff {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  color: #3A5059;
+  font-weight: light;
+  font-size: 15px;
+  text-align: center;
+  align-items: center;
+}
+
 .center {
   justify-content: center;
   align-items: center;
@@ -20,7 +47,7 @@ body {
 .navbar-custom {
   background: transparent;
   height: 63px;
-  margin: 15px 0 0px 10px; }
+  margin: 15px 0px 0px 10px; }
 
 .navbar-toggler {
   background: transparent;

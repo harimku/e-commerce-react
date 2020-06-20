@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React, { Component } from 'react';
 import { Nav, Navbar, NavbarToggler, Collapse, NavItem, Jumbotron, 
     Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label } from 'reactstrap';
@@ -51,12 +51,10 @@ class Header extends Component {
                             </div>
                             <div className="col-sm-6 center">
                                 <Form onSubmit={this.handleSearch}>
-                                   
-                                        <Label htmlFor="search" />
-                                        <Input type="text" id="search" name="search" placeholder="Search.."
-                                            innerRef={input => this.search = input} /> 
-                                        <Button outline color="secondary" type="submit" value="submit"><i className="fa fa-search fa-md" /> </Button>
-                                   
+                                    <Label htmlFor="search" />
+                                    <Input type="text" id="search" name="search" placeholder="Search.."
+                                        innerRef={input => this.search = input} /> 
+                                    <Button outline color="secondary" type="submit" value="submit"><i className="fa fa-search fa-md" /> </Button>
                                 </Form>
                             </div>
                             <div className="col-sm-3 align-self-center mr-0">
@@ -79,7 +77,7 @@ class Header extends Component {
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/">
+                                    <NavLink className="nav-link" to="/homedecor">
                                         Home & Decor
                                     </NavLink>
                                 </NavItem>

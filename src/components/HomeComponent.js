@@ -5,8 +5,8 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 function RenderCard({item}) {
     return (
         <Card>
-            <CardImg className="img-square-wrapper" src={item.image} alt={item.name} />
-            <CardBody>
+            <CardImg className="card-img" src={item.image} alt={item.name} />
+            <CardBody className="card-stuff">
                 <CardTitle>{item.name}</CardTitle>
                 <CardText>{item.description}</CardText>
             </CardBody>
@@ -17,7 +17,7 @@ function RenderCard({item}) {
 function Home(props) {
     const content = props.homepages.map(homepage => {
         return (
-            <div key={homepage.id} className="col-md-5 mt-4">
+            <div key={homepage.id} className="col-md-8 mt-4 center">
                 <RenderCard item={homepage} />
             </div>
         );
@@ -25,7 +25,7 @@ function Home(props) {
 
     return (
         <div className="container">
-            <div className="row">
+            <div className="row center">
                 {content}
             </div>
         </div>

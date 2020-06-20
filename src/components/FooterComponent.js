@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
 
 function Footer(props) {
     return (
@@ -14,7 +15,7 @@ function Footer(props) {
                     <div class="col-6 input-group mt-2 align-self-center" >
                         <input class="form-control form-custom" type="email" placeholder="Email" aria-label="submit" />
                         <div class="input-group-append">
-                            <a href="#" class="btn btn-custom" role="button" id="subscribeEmail">Subscribe</a>
+                            <Button outline className="btn-custom" type="submit" value="submit">Subscribe</Button>
                         </div>
                     </div>
                 </div>
