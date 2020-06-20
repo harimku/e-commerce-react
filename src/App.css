@@ -10,8 +10,8 @@ body {
 .jumbotron {
   margin: 0;
   padding: 10px;
-  background-color: aqua;
-  /*background: transparent; */
+  /* background-color: aqua; */
+  background: transparent; 
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-size: 40px;

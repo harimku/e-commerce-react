@@ -37,8 +37,7 @@ class Header extends Component {
     }
 
     handleSearch(event) {
-        alert(`Searching: ${this.search.value}`);
-        event.preventDefault();
+        alert(`Searching for: ${this.search.value}`);
     }
 
     render() {
@@ -46,17 +45,18 @@ class Header extends Component {
             <React.Fragment> 
                 <Jumbotron fluid>
                     <div className="container">
-                        <div className="row">
-                            <div className="col-sm-2 center">
+                        <div className="row center">
+                            <div className="col-sm-2">
                                 <Link to='/home'><img src="/assets/images/logo.png" height="100" width="100" alt="Melomato marketplace logo" /></Link> 
                             </div>
                             <div className="col-sm-6 center">
-                                <Form onSubmit={values => this.handleSearch(values)}>
-                                    <FormGroup>
+                                <Form onSubmit={this.handleSearch}>
+                                   
                                         <Label htmlFor="search" />
-                                        <Input type="text" id="search" name="search" placeholder="Search.."/>
-                                    </FormGroup>
-                                    <Button type="submit" value="submit" color="info"><i className="fa fa-search fa-md" /> </Button>
+                                        <Input type="text" id="search" name="search" placeholder="Search.."
+                                            innerRef={input => this.search = input} /> 
+                                        <Button outline color="secondary" type="submit" value="submit"><i className="fa fa-search fa-md" /> </Button>
+                                   
                                 </Form>
                             </div>
                             <div className="col-sm-3 align-self-center mr-0">
