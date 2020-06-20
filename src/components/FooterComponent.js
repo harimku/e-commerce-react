@@ -3,19 +3,22 @@ import { Link } from 'react-router-dom';
 
 function Footer(props) {
     return (
-        <footer className="site-footer">
+        <footer className="site-footer mt-5">
             <div className="container">
                 <div className="row">             
                     <div class="col-12 text-center">
                         <h6>Join today and receive personalized tips for shopping and selling on melomato</h6> 
                     </div>
-                    <div class="col-8 input-group mt-2" >
+                </div>
+                <div className="row center"> 
+                    <div class="col-6 input-group mt-2 align-self-center" >
                         <input class="form-control form-custom" type="email" placeholder="Email" aria-label="submit" />
                         <div class="input-group-append">
                             <a href="#" class="btn btn-custom" role="button" id="subscribeEmail">Subscribe</a>
                         </div>
                     </div>
                 </div>
+                <br />
                 <div className="row">    
                     <div className="col-md-4 text-center">
                         <h7>Sell</h7>

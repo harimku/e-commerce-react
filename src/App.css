@@ -2,14 +2,37 @@ body {
   font-family: "inter", sans-serif;
 }
 
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
 .jumbotron {
   margin: 0;
   padding: 10px;
-  background: transparent;
+  background-color: aqua;
+  /*background: transparent; */
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-size: 40px;
 }
+
+.navbar-custom {
+  background: transparent;
+  height: 63px;
+  margin: 15px 0 0px 10px; }
+
+.navbar-toggler {
+  background: transparent;
+  border-color: black; }
+
+.navbar a {
+  color: #FF7171;
+  font-size: 14px; }
+
+.navbar .navbar-nav .active a {
+  color: #3A5059; }
+
 
 .site-footer {
   background-color: white;
