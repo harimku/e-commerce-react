@@ -60,7 +60,7 @@ class Header extends Component {
                                 <Button color="link" onClick={this.toggleModal} >
                                     <i className="fa fa-user-circle-o fa-md" /> Login
                                 </Button>
-                                <Link to='/home'>
+                                <Link to='/cart'>
                                     <Button color="link">
                                         <i className="fa fa-shopping-cart fa-md" /> Cart
                                     </Button>

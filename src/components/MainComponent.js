@@ -8,9 +8,10 @@ import Electronics from './ElectronicsComponent';
 import Fashion from './FashionComponent';
 import Outdoor from './OutdoorComponent';
 import Pet from './PetComponent';
+import Cart from './CartComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-
+import { addItem } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
@@ -21,13 +22,17 @@ const mapStateToProps = state => {
         fashions: state.fashions,
         outdoors: state.outdoors,
         pets: state.pets,
+        cartitems: state.cartitems
     };
+};
+
+const mapDispatchToProps = {
+    addItem: (product) => (addItem(product))
 };
 
 class Main extends Component {
 
     render() {
-
         const HomePage = () => {
             return (
                 <Home
@@ -41,12 +46,16 @@ class Main extends Component {
                 <Header />
                     <Switch>
                         <Route path='/home' component={HomePage} />
-                        <Route exact path='/homedecor' render={() => <Homedecor products={this.props.homedecors} />} />
+                        <Route exact path='/homedecor' render={() => <Homedecor 
+                                                                        products={this.props.homedecors}  
+                                                                        addItem={this.props.addItem} 
+                                                                    />} />
                         <Route exact path='/automotive' render={() => <Automotive products={this.props.automotives} />} />
                         <Route exact path='/electronics' render={() => <Electronics products={this.props.electronics} />} />
                         <Route exact path='/fashion' render={() => <Fashion products={this.props.fashions} />} />
                         <Route exact path='/outdoors' render={() => <Outdoor products={this.props.outdoors} />} />
                         <Route exact path='/pet' render={() => <Pet products={this.props.pets} />} />
+                        <Route exact path='/cart' render={() => <Cart products={this.props.cartitems} />} />
                         <Redirect to='/home' />
                     </Switch>
                 <Footer />
@@ -55,4 +64,4 @@ class Main extends Component {
     };
 }
 
-export default withRouter(connect(mapStateToProps)(Main));;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));;

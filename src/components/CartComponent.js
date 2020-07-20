@@ -2,38 +2,27 @@ import React from 'react';
 import { Card, CardImg, CardBody, CardText, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-
-function RenderProduct({product, addItem}) {
-
-    function handleClick(product) {
-        addItem(product);
-    }
-
+function RenderProduct({product}) {
     return (
         <React.Fragment>
             <Card>
-                <Link to={`/homedecor/${product.id}`}>
+                <Link to={`/cart/${product.id}`}>
                     <CardImg width="100%" src={product.image} alt={product.name} />
                 </Link>
                 <CardBody className="card-stuff">
                     <CardText>{product.name}</CardText>
                     <CardText>{product.price}</CardText>
                 </CardBody>
-                <Button onClick={handleClick} className="btn-custom" color="link" type="submit" value="submit">+ Add to Cart</Button>
             </Card>
         </React.Fragment>
     );
 }
 
-function Homedecor(props) {
-
-    const homedecor = props.products.map(product => {
+function Cart(props) {
+    const cartitems = props.products.map(product => {
         return (
             <div key={product.id} className="col-sm-6 col-md-4">
-                <RenderProduct 
-                    product={product} 
-                    addItem={props.addItem}
-                />
+                <RenderProduct product={product} />
             </div>
         );
     });
@@ -41,11 +30,11 @@ function Homedecor(props) {
     return (
         <div className="container">
             <div className="row">
-                {homedecor}
+                {cartitems}
             </div>
         </div>
     );
 }
 
 
-export default Homedecor;
+export default Cart;
