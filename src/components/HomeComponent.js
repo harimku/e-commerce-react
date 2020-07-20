@@ -19,6 +19,7 @@ function Home(props) {
         return (
             <div key={homepage.id} className="col-md-8 mt-4 center">
                 <RenderCard item={homepage} />
+                <br />
             </div>
         );
     });

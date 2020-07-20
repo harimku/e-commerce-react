@@ -49,12 +49,11 @@ class Header extends Component {
                             <div className="col-sm-2">
                                 <Link to='/home'><img src="/assets/images/logo.png" height="100" width="100" alt="Melomato marketplace logo" /></Link> 
                             </div>
-                            <div className="col-sm-6 center">
+                            <div className="col-sm-6">
                                 <Form onSubmit={this.handleSearch}>
                                     <Label htmlFor="search" />
-                                    <Input type="text" id="search" name="search" placeholder="Search.."
+                                    <Input type="text" id="search" name="search" placeholder=" Search.. "
                                         innerRef={input => this.search = input} /> 
-                                    <Button outline color="secondary" type="submit" value="submit"><i className="fa fa-search fa-md" /> </Button>
                                 </Form>
                             </div>
                             <div className="col-sm-3 align-self-center mr-0">
