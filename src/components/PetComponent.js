@@ -6,7 +6,7 @@ function RenderProduct({product}) {
     return (
         <React.Fragment>
             <Card>
-                <Link to={`/automotive/${product.id}`}>
+                <Link to={`/pet/${product.id}`}>
                     <CardImg width="100%" src={product.image} alt={product.name} />
                 </Link>
                 <CardBody className="card-stuff">
@@ -19,8 +19,8 @@ function RenderProduct({product}) {
     );
 }
 
-function Automotive(props) {
-    const automotive = props.products.map(product => {
+function Pet(props) {
+    const pets = props.products.map(product => {
         return (
             <div key={product.id} className="col-sm-6 col-md-4">
                 <RenderProduct product={product} />
@@ -31,11 +31,11 @@ function Automotive(props) {
     return (
         <div className="container">
             <div className="row">
-                {automotive}
+                {pets}
             </div>
         </div>
     );
 }
 
 
-export default Automotive;
+export default Pet;

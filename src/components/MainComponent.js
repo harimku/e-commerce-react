@@ -4,6 +4,10 @@ import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Homedecor from './HomedecorComponent';
 import Automotive from './AutomotiveComponent';
+import Electronics from './ElectronicsComponent';
+import Fashion from './FashionComponent';
+import Outdoor from './OutdoorComponent';
+import Pet from './PetComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 
@@ -13,6 +17,10 @@ const mapStateToProps = state => {
         homepages: state.homepages,
         homedecors: state.homedecors,
         automotives: state.automotives,
+        electronics: state.electronics,
+        fashions: state.fashions,
+        outdoors: state.outdoors,
+        pets: state.pets,
     };
 };
 
@@ -35,6 +43,10 @@ class Main extends Component {
                         <Route path='/home' component={HomePage} />
                         <Route exact path='/homedecor' render={() => <Homedecor products={this.props.homedecors} />} />
                         <Route exact path='/automotive' render={() => <Automotive products={this.props.automotives} />} />
+                        <Route exact path='/electronics' render={() => <Electronics products={this.props.electronics} />} />
+                        <Route exact path='/fashion' render={() => <Fashion products={this.props.fashions} />} />
+                        <Route exact path='/outdoors' render={() => <Outdoor products={this.props.outdoors} />} />
+                        <Route exact path='/pet' render={() => <Pet products={this.props.pets} />} />
                         <Redirect to='/home' />
                     </Switch>
                 <Footer />
