@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 function RenderProduct({product, addItem}) {
 
-    function handleClick(product) {
-        addItem(product);
+    function handleClick({product}) {
+        addItem({product});
     }
 
     return (

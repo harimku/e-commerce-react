@@ -1,1 +1,4 @@
 export const ADD_ITEM = 'ADD_ITEM';
+export const HOMEPAGES_LOADING = 'HOMEPAGES_LOADING';
+export const HOMEPAGES_FAILED = 'HOMEPAGES_FAILED';
+export const ADD_HOMEPAGES = 'ADD_HOMEPAGES';

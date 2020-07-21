@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg, CardBody, CardText, Button } from 'reactstrap';
+import { Card, CardImg, CardBody, CardText } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 function RenderProduct({product}) {

@@ -11,7 +11,7 @@ import Pet from './PetComponent';
 import Cart from './CartComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { addItem } from '../redux/ActionCreators';
+import { addItem, fetchHomepages } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
@@ -27,16 +27,23 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-    addItem: (product) => (addItem(product))
+    addItem: (product) => (addItem(product)),
+    fetchHomepages: () => (fetchHomepages())
 };
 
 class Main extends Component {
+
+    componentDidMount() {
+        this.props.fetchHomepages();
+    }
 
     render() {
         const HomePage = () => {
             return (
                 <Home
                     homepages={this.props.homepages}
+                    homepagesLoading={this.props.homepages.isLoading}
+                    homepagesErrMess={this.props.homepages.errMess}
                 />
             );
         };
