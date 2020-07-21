@@ -1,4 +1,4 @@
-export const HOMEPAGES = [
+export const HOMEPAGES = [ 
     {
         id: 0,
         name: "Tropical Getaway",

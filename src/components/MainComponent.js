@@ -11,7 +11,7 @@ import Pet from './PetComponent';
 import Cart from './CartComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { addItem, fetchHomepages } from '../redux/ActionCreators';
+import { addItem, fetchHomepages, fetchHomedecors, fetchAutomotives, fetchElectronics, fetchFashions, fetchOutdoors, fetchPets } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
@@ -28,13 +28,25 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     addItem: (product) => (addItem(product)),
-    fetchHomepages: () => (fetchHomepages())
+    fetchHomepages: () => (fetchHomepages()),
+    fetchHomedecors: () => (fetchHomedecors()),
+    fetchAutomotives: () => (fetchAutomotives()),
+    fetchElectronics: () => (fetchElectronics()),
+    fetchFashions: () => (fetchFashions()),
+    fetchOutdoors: () => (fetchOutdoors()),
+    fetchPets: () => (fetchPets()),
 };
 
 class Main extends Component {
 
     componentDidMount() {
         this.props.fetchHomepages();
+        this.props.fetchHomedecors();
+        this.props.fetchAutomotives();
+        this.props.fetchElectronics();
+        this.props.fetchFashions();
+        this.props.fetchOutdoors();
+        this.props.fetchPets();
     }
 
     render() {
@@ -54,14 +66,37 @@ class Main extends Component {
                     <Switch>
                         <Route path='/home' component={HomePage} />
                         <Route exact path='/homedecor' render={() => <Homedecor 
-                                                                        products={this.props.homedecors}  
+                                                                        products={this.props.homedecors}
+                                                                        decorsLoading={this.props.homedecors.isLoading}
+                                                                        decorsErrMess={this.props.homedecors.errMess}  
                                                                         addItem={this.props.addItem} 
                                                                     />} />
-                        <Route exact path='/automotive' render={() => <Automotive products={this.props.automotives} />} />
-                        <Route exact path='/electronics' render={() => <Electronics products={this.props.electronics} />} />
-                        <Route exact path='/fashion' render={() => <Fashion products={this.props.fashions} />} />
-                        <Route exact path='/outdoors' render={() => <Outdoor products={this.props.outdoors} />} />
-                        <Route exact path='/pet' render={() => <Pet products={this.props.pets} />} />
+                        <Route exact path='/automotive' render={() => <Automotive 
+                                                                            products={this.props.automotives} 
+                                                                            automotivesLoading={this.props.automotives.isLoading}
+                                                                            automotivesErrMess={this.props.automotives.errMess}  
+                                                                        />} 
+                                                                        />
+                        <Route exact path='/electronics' render={() => <Electronics 
+                                                                            products={this.props.electronics} 
+                                                                            electronicsLoading={this.props.electronics.isLoading}
+                                                                            electronicsErrMess={this.props.electronics.errMess}
+                                                                        />} />
+                        <Route exact path='/fashion' render={() => <Fashion 
+                                                                        products={this.props.fashions} 
+                                                                        fashionsLoading={this.props.fashions.isLoading}
+                                                                        fashionsErrMess={this.props.fashions.errMess}
+                                                                    />} />
+                        <Route exact path='/outdoors' render={() => <Outdoor 
+                                                                        products={this.props.outdoors}
+                                                                        outdoorsLoading={this.props.outdoors.isLoading}
+                                                                        outdoorsErrMess={this.props.outdoors.errMess}
+                                                                    />} />
+                        <Route exact path='/pet' render={() => <Pet 
+                                                                    products={this.props.pets} 
+                                                                    petsLoading={this.props.pets.isLoading}
+                                                                    petsErrMess={this.props.pets.errMess}
+                                                                />} />
                         <Route exact path='/cart' render={() => <Cart products={this.props.cartitems} />} />
                         <Redirect to='/home' />
                     </Switch>
