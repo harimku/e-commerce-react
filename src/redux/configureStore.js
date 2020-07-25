@@ -20,7 +20,7 @@ export const ConfigureStore = () => {
             fashions: Fashions,
             outdoors: Outdoors,
             pets: Pets,
-            cartitems: Items
+            cartitems: Items,
         }),
         applyMiddleware(thunk, logger)
     );

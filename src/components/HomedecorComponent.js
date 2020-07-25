@@ -5,11 +5,7 @@ import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
 
-function RenderProduct({product, isLoading, errMess, addItem}) {
-
-    function handleClick({product}) {
-        addItem({product});
-    }
+function RenderProduct({product, isLoading, errMess, postItem}) {
 
     if (isLoading) {
         return <Loading />;
@@ -27,7 +23,7 @@ function RenderProduct({product, isLoading, errMess, addItem}) {
                     <CardText>{product.name}</CardText>
                     <CardText>{product.price}</CardText>
                 </CardBody>
-                <Button onClick={handleClick} className="btn-custom" color="link" type="submit" value="submit">+ Add to Cart</Button>
+                <Button onClick={() => postItem(product.name, product.image, product.price)} className="btn-custom" color="link" type="submit" value="submit">+ Add to Cart</Button>
             </Card>
         </React.Fragment>
     );
@@ -63,7 +59,7 @@ function Homedecor(props) {
                     product={product} 
                     isLoading={props.decorsLoading}
                     errMess={props.decorsErrMess}
-                    addItem={props.addItem}
+                    postItem={props.postItem}
                 />
             </div>
         );

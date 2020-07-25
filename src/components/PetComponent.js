@@ -5,7 +5,7 @@ import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
 
-function RenderProduct({product, isLoading, errMess}) {
+function RenderProduct({product, isLoading, errMess, postItem}) {
 
     if (isLoading) {
         return <Loading />;
@@ -23,7 +23,7 @@ function RenderProduct({product, isLoading, errMess}) {
                     <CardText>{product.name}</CardText>
                     <CardText>{product.price}</CardText>
                 </CardBody>
-                <Button className="btn-custom" color="link" type="submit" value="submit">+ Add to Cart</Button>
+                <Button onClick={() => postItem(product.name, product.image, product.price)} className="btn-custom" color="link" type="submit" value="submit">+ Add to Cart</Button>
             </Card>
         </React.Fragment>
     );
@@ -59,6 +59,7 @@ function Pet(props) {
                     product={product}
                     isLoading={props.petsLoading}
                     errMess={props.petsErrMess}
+                    postItem={props.postItem}
                 />
             </div>
         );

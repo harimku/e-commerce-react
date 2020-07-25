@@ -11,7 +11,7 @@ import Pet from './PetComponent';
 import Cart from './CartComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { addItem, fetchHomepages, fetchHomedecors, fetchAutomotives, fetchElectronics, fetchFashions, fetchOutdoors, fetchPets } from '../redux/ActionCreators';
+import { postItem, fetchHomepages, fetchHomedecors, fetchAutomotives, fetchElectronics, fetchFashions, fetchOutdoors, fetchPets, fetchCartitems } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
@@ -27,7 +27,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-    addItem: (product) => (addItem(product)),
+    postItem: (productId, name, image, price) => (postItem(productId, name, image, price)),
     fetchHomepages: () => (fetchHomepages()),
     fetchHomedecors: () => (fetchHomedecors()),
     fetchAutomotives: () => (fetchAutomotives()),
@@ -35,6 +35,7 @@ const mapDispatchToProps = {
     fetchFashions: () => (fetchFashions()),
     fetchOutdoors: () => (fetchOutdoors()),
     fetchPets: () => (fetchPets()),
+    fetchCartitems: () => (fetchCartitems()),
 };
 
 class Main extends Component {
@@ -47,6 +48,7 @@ class Main extends Component {
         this.props.fetchFashions();
         this.props.fetchOutdoors();
         this.props.fetchPets();
+        this.props.fetchCartitems();
     }
 
     render() {
@@ -69,35 +71,45 @@ class Main extends Component {
                                                                         products={this.props.homedecors}
                                                                         decorsLoading={this.props.homedecors.isLoading}
                                                                         decorsErrMess={this.props.homedecors.errMess}  
-                                                                        addItem={this.props.addItem} 
+                                                                        postItem={this.props.postItem}
+                                                                        cart={this.props.cartitems}
                                                                     />} />
                         <Route exact path='/automotive' render={() => <Automotive 
                                                                             products={this.props.automotives} 
                                                                             automotivesLoading={this.props.automotives.isLoading}
-                                                                            automotivesErrMess={this.props.automotives.errMess}  
+                                                                            automotivesErrMess={this.props.automotives.errMess}
+                                                                            postItem={this.props.postItem}  
                                                                         />} 
                                                                         />
                         <Route exact path='/electronics' render={() => <Electronics 
                                                                             products={this.props.electronics} 
                                                                             electronicsLoading={this.props.electronics.isLoading}
                                                                             electronicsErrMess={this.props.electronics.errMess}
+                                                                            postItem={this.props.postItem}
                                                                         />} />
                         <Route exact path='/fashion' render={() => <Fashion 
                                                                         products={this.props.fashions} 
                                                                         fashionsLoading={this.props.fashions.isLoading}
                                                                         fashionsErrMess={this.props.fashions.errMess}
+                                                                        postItem={this.props.postItem}
                                                                     />} />
                         <Route exact path='/outdoors' render={() => <Outdoor 
                                                                         products={this.props.outdoors}
                                                                         outdoorsLoading={this.props.outdoors.isLoading}
                                                                         outdoorsErrMess={this.props.outdoors.errMess}
+                                                                        postItem={this.props.postItem}
                                                                     />} />
                         <Route exact path='/pet' render={() => <Pet 
                                                                     products={this.props.pets} 
                                                                     petsLoading={this.props.pets.isLoading}
                                                                     petsErrMess={this.props.pets.errMess}
+                                                                    postItem={this.props.postItem}
                                                                 />} />
-                        <Route exact path='/cart' render={() => <Cart products={this.props.cartitems} />} />
+                        <Route exact path='/cart' render={() => <Cart 
+                                                                    products={this.props.cartitems} 
+                                                                    cartitemsLoading={this.props.cartitems.isLoading}
+                                                                    cartitemsErrMess={this.props.cartitems.errMess}
+                                                                />} />
                         <Redirect to='/home' />
                     </Switch>
                 <Footer />

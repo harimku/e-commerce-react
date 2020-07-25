@@ -4,10 +4,43 @@ import { baseUrl } from '../shared/baseUrl';
 
 export const addItem = (item) => ({
     type: ActionTypes.ADD_ITEM,
-    payload: {
-        name: item.name
-    }
+    payload: item
 });
+
+export const postItem = (name, image, price) => dispatch => {
+    
+    const newItem = {
+        name,
+        image,
+        price
+    };
+
+    return fetch(baseUrl + 'cartitems', {
+            method: "POST",
+            body: JSON.stringify(newItem),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        
+        .then(response => {
+                if (response.ok) {
+                    return response;
+                } else {
+                    const error = new Error(`Error ${response.status}: ${response.statusText}`);
+                    error.response = response;
+                    throw error;
+                }
+            },
+            error => { throw error; }
+        )
+        .then(response => response.json())
+        .then(response => dispatch(addItem(response)))
+        .catch(error => {
+            console.log('Add Item to Cart', error.message);
+            alert('Your item could not be added to cart\nError: ' + error.message);
+        });
+};
 
 export const fetchHomepages = () => dispatch => {
 
@@ -276,3 +309,26 @@ export const petsFailed = errMess => ({
     type: ActionTypes.PETS_FAILED,
     payload: errMess
 });
+
+export const fetchCartitems = () => dispatch => {
+
+    return fetch(baseUrl + 'cartitems')
+        .then(response => response.json())
+        .then(cartitems => dispatch(addCartitems(cartitems)));
+};
+
+export const addCartitems = cartitems => ({
+    type: ActionTypes.ADD_CARTITEMS,
+    payload: cartitems
+});
+
+export const cartitemsLoading = () => ({
+    type: ActionTypes.CARTITEMS_LOADING
+});
+
+export const cartitemsFailed = errMess => ({
+    type: ActionTypes.CARTITEMS_FAILED,
+    payload: errMess
+});
+
+

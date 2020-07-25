@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
-function RenderProduct({product, isLoading, errMess}) {
+function RenderProduct({product, isLoading, errMess, postItem}) {
+    
     if (isLoading) {
         return <Loading />;
     }
@@ -21,7 +22,7 @@ function RenderProduct({product, isLoading, errMess}) {
                     <CardText>{product.name}</CardText>
                     <CardText>{product.price}</CardText>
                 </CardBody>
-                <Button className="btn-custom" color="link" type="submit" value="submit">+ Add to Cart</Button>
+                <Button onClick={() => postItem(product.name, product.image, product.price)} className="btn-custom" color="link" type="submit" value="submit">+ Add to Cart</Button>
             </Card>
         </React.Fragment>
     );
@@ -57,6 +58,7 @@ function Automotive(props) {
                     product={product} 
                     isLoading={props.automotivesLoading}
                     errMess={props.automotivesErrMess}
+                    postItem={props.postItem}
                 />
             </div>
         );
