@@ -14,8 +14,23 @@ export const fetchHomepages = () => dispatch => {
     dispatch(homepagesLoading());
 
     return fetch(baseUrl + 'homepages')
+    .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                const error = new Error(`Error ${response.status}: ${response.statusText}`);                
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            const errMess = new Error(error.message);
+            throw errMess;
+        }
+    )
     .then(response => response.json())
-    .then(homepages => dispatch(addHomepages(homepages)));
+    .then(homepages => dispatch(addHomepages(homepages)))
+    .catch(error => dispatch(homepagesFailed(error.message)));
 };
 
 export const addHomepages = homepages => ({
@@ -38,8 +53,23 @@ export const fetchHomedecors = () => dispatch => {
     dispatch(decorsLoading());
 
     return fetch(baseUrl + 'homedecors')
-        .then(response => response.json())
-        .then(homedecors => dispatch(addDecors(homedecors)));
+    .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                const error = new Error(`Error ${response.status}: ${response.statusText}`);                
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            const errMess = new Error(error.message);
+            throw errMess;
+        }
+    )
+    .then(response => response.json())
+    .then(homedecors => dispatch(addDecors(homedecors)))
+    .catch(error => dispatch(decorsFailed(error.message)));
 };
 
 export const addDecors = homepages => ({
@@ -61,8 +91,23 @@ export const fetchAutomotives = () => dispatch => {
     dispatch(automotivesLoading());
 
     return fetch(baseUrl + 'automotives')
-        .then(response => response.json())
-        .then(automotives => dispatch(addAutomotives(automotives)));
+    .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                const error = new Error(`Error ${response.status}: ${response.statusText}`);                
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            const errMess = new Error(error.message);
+            throw errMess;
+        }
+    )
+    .then(response => response.json())
+    .then(automotives => dispatch(addAutomotives(automotives)))
+    .catch(error => dispatch(automotivesFailed(error.message)));
 };
 
 export const addAutomotives = automotives => ({
@@ -84,8 +129,24 @@ export const fetchElectronics = () => dispatch => {
     dispatch(electronicsLoading());
 
     return fetch(baseUrl + 'electronics')
-        .then(response => response.json())
-        .then(electronics => dispatch(addElectronics(electronics)));
+    
+    .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                const error = new Error(`Error ${response.status}: ${response.statusText}`);                
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            const errMess = new Error(error.message);
+            throw errMess;
+        }
+    )
+    .then(response => response.json())
+    .then(electronics => dispatch(addElectronics(electronics)))
+    .catch(error => dispatch(electronicsFailed(error.message)));
 };
 
 export const addElectronics = electronics => ({
@@ -107,8 +168,23 @@ export const fetchFashions = () => dispatch => {
     dispatch(fashionsLoading());
 
     return fetch(baseUrl + 'fashions')
-        .then(response => response.json())
-        .then(fashions => dispatch(addFashions(fashions)));
+    .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                const error = new Error(`Error ${response.status}: ${response.statusText}`);                
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            const errMess = new Error(error.message);
+            throw errMess;
+        }
+    )
+    .then(response => response.json())
+    .then(fashions => dispatch(addFashions(fashions)))
+    .catch(error => dispatch(fashionsFailed(error.message)));
 };
 
 export const addFashions = fashions => ({
@@ -130,8 +206,23 @@ export const fetchOutdoors = () => dispatch => {
     dispatch(outdoorsLoading());
 
     return fetch(baseUrl + 'outdoors')
-        .then(response => response.json())
-        .then(outdoors => dispatch(addOutdoors(outdoors)));
+    .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                const error = new Error(`Error ${response.status}: ${response.statusText}`);                
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            const errMess = new Error(error.message);
+            throw errMess;
+        }
+    )
+    .then(response => response.json())
+    .then(outdoors => dispatch(addOutdoors(outdoors)))
+    .catch(error => dispatch(outdoorsFailed(error.message)));
 };
 
 export const addOutdoors = outdoors => ({
@@ -153,8 +244,23 @@ export const fetchPets = () => dispatch => {
     dispatch(petsLoading());
 
     return fetch(baseUrl + 'pets')
-        .then(response => response.json())
-        .then(pets => dispatch(addPets(pets)));
+    .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                const error = new Error(`Error ${response.status}: ${response.statusText}`);                
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            const errMess = new Error(error.message);
+            throw errMess;
+        }
+    )
+    .then(response => response.json())
+    .then(pets => dispatch(addPets(pets)))
+    .catch(error => dispatch(petsFailed(error.message)));
 };
 
 export const addPets = pets => ({
