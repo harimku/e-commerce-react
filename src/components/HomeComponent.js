@@ -12,7 +12,7 @@ function RenderCard({item, isLoading, errMess}) {
     }
     return (
         <Card>
-            <CardImg className="card-img" src={baseUrl + item.image} alt={item.name} />
+            <CardImg src={baseUrl + item.image} alt={item.name} />
             <CardBody className="card-stuff">
                 <CardTitle>{item.name}</CardTitle>
                 <CardText>{item.description}</CardText>

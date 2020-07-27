@@ -6,11 +6,6 @@ export const Items = (state = {
                                 cartitems: []
                                 }, action) => {
     switch (action.type) {
-        /*
-        case ActionTypes.ADD_ITEM:
-            const item = action.payload;
-            return {...state, cartitems: state.cartitems.concat(item)};
-        */
         case ActionTypes.ADD_ITEM:
             const item = { ...action.payload, id: state.cartitems.length };
             const cartitems = [...state.cartitems, item];

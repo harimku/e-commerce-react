@@ -16,10 +16,10 @@ function RenderProduct({product, isLoading, errMess, postItem}) {
     return (
         <React.Fragment>
             <Card>
-                <Link to={`/pet/${product.id}`}>
-                    <CardImg width="100%" src={baseUrl + product.image} alt={product.name} />
-                </Link>
                 <CardBody className="card-stuff">
+                    <Link to={`/pet/${product.id}`}>
+                        <CardImg className="card-product" src={baseUrl + product.image} alt={product.name} />
+                    </Link>
                     <CardText>{product.name}</CardText>
                     <CardText>{product.price}</CardText>
                 </CardBody>

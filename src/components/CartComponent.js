@@ -14,13 +14,19 @@ function RenderProduct({product, isLoading, errMess}) {
     }
     return (
         <React.Fragment>
-            <Card>
-                <Link to={`/cart/${product.id}`}>
-                    <CardImg width="100%" src={baseUrl + product.image} alt={product.name} />
-                </Link>
-                <CardBody className="card-stuff">
-                    <CardText>{product.name}</CardText>
-                    <CardText>{product.price}</CardText>
+            <Card className="card-cart">
+                <CardBody>
+                    <div className="row align-items-center">
+                        <div className="col-6">
+                            <Link to={`/cart/${product.id}`}>
+                                <CardImg className="card-product" width="100%" src={baseUrl + product.image} alt={product.name} />
+                            </Link>
+                        </div>
+                        <div className="col-6">
+                            <CardText>{product.name}</CardText>
+                            <CardText>{product.price}</CardText>
+                        </div>
+                    </div>
                 </CardBody>
             </Card>
         </React.Fragment>
@@ -51,12 +57,13 @@ function Cart(props) {
     }
     const cartitems = props.products.cartitems.map(product => {
         return (
-            <div key={product.id} className="col-sm-6 col-md-4">
+            <div key={product.id} className="col-10 align-items-center">
                 <RenderProduct 
                     product={product} 
                     isLoading={props.cartitemsLoading}
                     errMess={props.cartitemsErrMess}
                 />
+                <br></br>
             </div>
         );
     });
