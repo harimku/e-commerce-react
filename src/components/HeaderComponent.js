@@ -50,21 +50,29 @@ class Header extends Component {
                                 <Link to='/home'><img src="/assets/images/logo.png" height="100" width="100" alt="Melomato marketplace logo" /></Link> 
                             </div>
                             <div className="col-sm-6">
-                                <Form onSubmit={this.handleSearch}>
+                                <Form style={{display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                            }} onSubmit={this.handleSearch}>
                                     <Label htmlFor="search" />
                                     <Input type="text" id="search" name="search" placeholder=" Search.. "
                                         innerRef={input => this.search = input} /> 
                                 </Form>
                             </div>
-                            <div className="col-sm-3 align-self-center mr-0">
-                                <Button color="link" onClick={this.toggleModal} >
-                                    <i className="fa fa-user-circle-o fa-md" /> Login
+                            <div className="col-sm-4"> 
+                                <Button color="link" onClick={this.toggleModal} style={{ alignItems: 'center', justifyContent: 'left', color: "#3A5059" }}>
+                                    <i className="fa fa-user-circle-o fa-md"/> Login
                                 </Button>
-                                <Link to='/cart'>
-                                    <Button color="link">
-                                        <i className="fa fa-shopping-cart fa-md" /> Cart
+                                <Link to='/cart' >
+                                    <Button color="link" style={{
+                                            alignItems: "center",
+                                            justifyContent: "right",
+                                            color: "#3A5059"
+                                        }}>
+                                        <i className="fa fa-shopping-cart fa-md"  /> Cart
                                     </Button>
                                 </Link>
+                                
                             </div>
                         </div>
                     </div>
@@ -127,7 +135,8 @@ class Header extends Component {
                             <FormGroup check>
                                 <Label check>
                                     <Input type="checkbox" name="remember" 
-                                        innerRef={input => this.remember = input} />
+                                        innerRef={input => this.remember = input} 
+                                    />
                                     Remember me
                                 </Label>
                             </FormGroup>
