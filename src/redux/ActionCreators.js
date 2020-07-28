@@ -7,6 +7,38 @@ export const addItem = (item) => ({
     payload: item
 });
 
+export const removeItem = (item) => ({
+    type: ActionTypes.REMOVE_ITEM,
+    payload: item
+});
+
+/*
+export const removeItem = (name) => dispatch => {
+
+    return fetch(baseUrl + 'cartitems', {
+            method: "DELETE"
+        })
+
+        .then(response => {
+                if (response.ok) {
+                    return response;
+                } else {
+                    const error = new Error(`Error ${response.status}: ${response.statusText}`);
+                    error.response = response;
+                    throw error;
+                }
+            },
+            error => { throw error; }
+        )
+        .then(response => response.json())
+        .then(name => dispatch(deleteItem(name)))
+        .catch(error => {
+            console.log('Remove Item from Cart', error.message);
+            alert('Your item could not be removed. \nError: ' + error.message);
+        });
+};
+*/
+
 export const postItem = (name, image, price) => dispatch => {
     
     const newItem = {

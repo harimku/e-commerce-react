@@ -1,10 +1,10 @@
 import React from 'react';
-import { Card, CardImg, CardBody, CardText } from 'reactstrap';
+import { Card, CardImg, CardBody, CardText, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
-function RenderProduct({product, isLoading, errMess}) {
+function RenderProduct({product, isLoading, errMess, removeItem}) {
 
     if (isLoading) {
         return <Loading />;
@@ -25,6 +25,7 @@ function RenderProduct({product, isLoading, errMess}) {
                         <div className="col-6">
                             <CardText>{product.name}</CardText>
                             <CardText>{product.price}</CardText>
+                            <Button onClick={() => removeItem(product.name)} className="btn-custom" color="link" type="submit" value="submit">- Remove Item</Button>
                         </div>
                     </div>
                 </CardBody>
@@ -62,6 +63,7 @@ function Cart(props) {
                     product={product} 
                     isLoading={props.cartitemsLoading}
                     errMess={props.cartitemsErrMess}
+                    removeItem={props.removeItem}
                 />
                 <br></br>
             </div>

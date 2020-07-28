@@ -11,7 +11,7 @@ import Pet from './PetComponent';
 import Cart from './CartComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { postItem, fetchHomepages, fetchHomedecors, fetchAutomotives, fetchElectronics, fetchFashions, fetchOutdoors, fetchPets, fetchCartitems } from '../redux/ActionCreators';
+import { postItem, removeItem, fetchHomepages, fetchHomedecors, fetchAutomotives, fetchElectronics, fetchFashions, fetchOutdoors, fetchPets, fetchCartitems } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
@@ -28,6 +28,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     postItem: (productId, name, image, price) => (postItem(productId, name, image, price)),
+    removeItem: (name) => (removeItem(name)),
     fetchHomepages: () => (fetchHomepages()),
     fetchHomedecors: () => (fetchHomedecors()),
     fetchAutomotives: () => (fetchAutomotives()),
@@ -109,6 +110,7 @@ class Main extends Component {
                                                                     products={this.props.cartitems} 
                                                                     cartitemsLoading={this.props.cartitems.isLoading}
                                                                     cartitemsErrMess={this.props.cartitems.errMess}
+                                                                    removeItem={this.props.removeItem}
                                                                 />} />
                         <Redirect to='/home' />
                     </Switch>

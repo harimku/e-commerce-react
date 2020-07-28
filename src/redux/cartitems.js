@@ -7,10 +7,15 @@ export const Items = (state = {
                                 }, action) => {
     switch (action.type) {
         case ActionTypes.ADD_ITEM:
-            const item = { ...action.payload, id: state.cartitems.length };
+            const item = { id: state.cartitems.length, ...action.payload };
             const cartitems = [...state.cartitems, item];
             return { ...state, errMess: null, cartitems }
-
+        case ActionTypes.REMOVE_ITEM:
+            return {
+                ...state,
+                cartitems: state.cartitems.filter((item) => item.name !== action.payload)
+            };
+            
         case ActionTypes.ADD_CARTITEMS:
             return {...state, isLoading: false, errMess: null, cartitems: action.payload};
         case ActionTypes.CARTITEMS_LOADING:
