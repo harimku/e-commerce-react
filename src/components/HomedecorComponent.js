@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
-
 function RenderProduct({product, isLoading, errMess, postItem}) {
 
     if (isLoading) {
@@ -20,12 +19,12 @@ function RenderProduct({product, isLoading, errMess, postItem}) {
                 <CardBody className="card-stuff">
                     <Link to={`/homedecors/${product.id}`}>
                         <CardImg className="card-product" src={baseUrl + product.image} alt={product.name} />
-                        <ul className="social">
-                            <Button ><i class="fa fa-search"></i></Button>
-                            <Button ><i class="fa fa-heart"></i></Button>
-                            <Button ><i class="fa fa-shopping-cart"></i></Button>
-                        </ul>
                     </Link>
+                    <ul className="social">
+                        <Button ><i class="fa fa-search"></i></Button>
+                        <Button ><i class="fa fa-heart"></i></Button>
+                        <Button onClick={() => postItem(product.name, product.image, product.price)} ><i class="fa fa-shopping-cart"></i></Button>
+                    </ul>
                     <CardText>{product.name}</CardText>
                     <CardText>{product.price} </CardText>
                 </CardBody>
