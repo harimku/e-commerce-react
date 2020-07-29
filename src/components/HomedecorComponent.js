@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardImg, CardBody, CardText, Button } from 'reactstrap';
 import ReactStars from "react-rating-stars-component";
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
@@ -17,7 +17,7 @@ function RenderProduct({product, isLoading, errMess, postItem}) {
         <React.Fragment>
             <Card>
                 <CardBody className="card-stuff">
-                    <Link to={`/homedecors/${product.id}`}>
+                    <Link to={`/homedecor/${product.id}`}>
                         <CardImg className="card-product" src={baseUrl + product.image} alt={product.name} />
                     </Link>
                     <ul className="social">
@@ -79,6 +79,7 @@ function Homedecor(props) {
             </div>
         );
     });
+
 
     return (
         <div className="container">

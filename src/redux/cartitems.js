@@ -15,7 +15,6 @@ export const Items = (state = {
                 ...state,
                 cartitems: state.cartitems.filter((item) => item.name !== action.payload)
             };
-            
         case ActionTypes.ADD_CARTITEMS:
             return {...state, isLoading: false, errMess: null, cartitems: action.payload};
         case ActionTypes.CARTITEMS_LOADING:

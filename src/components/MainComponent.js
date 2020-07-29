@@ -9,6 +9,7 @@ import Fashion from './FashionComponent';
 import Outdoor from './OutdoorComponent';
 import Pet from './PetComponent';
 import Cart from './CartComponent';
+import ItemInfo from './ItemInfoComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { postItem, removeItem, fetchHomepages, fetchHomedecors, fetchAutomotives, fetchElectronics, fetchFashions, fetchOutdoors, fetchPets, fetchCartitems } from '../redux/ActionCreators';
@@ -63,6 +64,14 @@ class Main extends Component {
             );
         };
 
+        const ItemId = ({match}) => {
+            return (
+                <ItemInfo
+                    product={this.props.homedecors.homedecors.filter(homedecor=> homedecor.id === +match.params.ID)[0]}
+                />
+            );
+        };
+    
         return (
             <div>
                 <Header />
@@ -73,8 +82,8 @@ class Main extends Component {
                                                                         decorsLoading={this.props.homedecors.isLoading}
                                                                         decorsErrMess={this.props.homedecors.errMess}  
                                                                         postItem={this.props.postItem}
-                                                                        cart={this.props.cartitems}
                                                                     />} />
+                        <Route path='/homedecor/:ID' component={ItemId} />
                         <Route exact path='/automotive' render={() => <Automotive 
                                                                             products={this.props.automotives} 
                                                                             automotivesLoading={this.props.automotives.isLoading}
