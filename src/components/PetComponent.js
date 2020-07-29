@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardImg, CardBody, CardText, Button } from 'reactstrap';
+import ReactStars from "react-rating-stars-component";
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
@@ -19,10 +20,25 @@ function RenderProduct({product, isLoading, errMess, postItem}) {
                 <CardBody className="card-stuff">
                     <Link to={`/pet/${product.id}`}>
                         <CardImg className="card-product" src={baseUrl + product.image} alt={product.name} />
+                        <ul className="social">
+                            <Button ><i class="fa fa-search"></i></Button>
+                            <Button ><i class="fa fa-heart"></i></Button>
+                            <Button ><i class="fa fa-shopping-cart"></i></Button>
+                        </ul>
                     </Link>
                     <CardText>{product.name}</CardText>
                     <CardText>{product.price}</CardText>
                 </CardBody>
+                <ReactStars
+                    count={5}
+                    value={product.rating}
+                    size={14}
+                    isHalf={true}
+                    emptyIcon={<i className="far fa-heart"></i>}
+                    halfIcon={<i className="fa fa-star-half-alt"></i>}
+                    fullIcon={<i className="fa fa-heart"></i>}
+                    activeColor="#f5c71a"
+                />
                 <Button onClick={() => postItem(product.name, product.image, product.price)} className="btn-custom" color="link" type="submit" value="submit">+ Add to Cart</Button>
             </Card>
         </React.Fragment>

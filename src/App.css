@@ -13,6 +13,9 @@ body {
 
 .card {
   border: transparent;
+  position: relative;
+  text-align: center;
+  align-items: center;
 }
 
 .card-cart {
@@ -47,6 +50,28 @@ body {
   border-radius: 5px;
   width: 220px;
   height: 220px;
+}
+
+.card .social {
+  width: 150px;
+  padding: 0;
+  margin: 20;
+  list-style: none;
+  opacity: 0;
+  transform: translateY(-50%) translateX(-50%);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  z-index: 1;
+  transition: all .3s ease-in-out; }
+
+.card:hover .social {
+  opacity: 1;
+  top: 50%; }
+
+.card .social .button {
+  color: white;
+  background-color: #FF7171;
 }
 
 .center {
@@ -109,3 +134,4 @@ body {
 .site-footer .form-custom {
   border-color: #989898; 
 }
+
