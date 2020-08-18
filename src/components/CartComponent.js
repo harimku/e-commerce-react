@@ -25,7 +25,7 @@ function RenderProduct({product, isLoading, errMess, removeItem}) {
                         <div className="col-6">
                             <CardText>{product.name}</CardText>
                             <CardText>{product.price}</CardText>
-                            <Button onClick={() => removeItem(product.name)} className="btn-custom" color="link" type="submit" value="submit">- Remove Item</Button>
+                            <Button onClick={() => removeItem(product.id)} className="btn-custom" color="link" type="submit" value="submit">- Remove Item</Button>
                         </div>
                     </div>
                 </CardBody>
