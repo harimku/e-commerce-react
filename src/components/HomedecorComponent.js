@@ -23,7 +23,7 @@ function RenderProduct({product, isLoading, errMess, postItem}) {
                     <ul className="social">
                         <Button ><i class="fa fa-search"></i></Button>
                         <Button ><i class="fa fa-heart"></i></Button>
-                        <Button onClick={() => postItem(product.name, product.image, product.price)} ><i class="fa fa-shopping-cart"></i></Button>
+                        <Button onClick={() => postItem(product.name, product.image, product.price, 1)} ><i class="fa fa-shopping-cart"></i></Button>
                     </ul>
                     <CardText>{product.name}</CardText>
                     <CardText>{product.price} </CardText>
@@ -38,7 +38,7 @@ function RenderProduct({product, isLoading, errMess, postItem}) {
                     fullIcon={<i className="fa fa-heart"></i>}
                     activeColor="#f5c71a"
                 />
-                <Button onClick={() => postItem(product.name, product.image, product.price)} className="btn-custom" color="link" type="submit" value="submit">+ Add to Cart</Button>
+                <Button onClick={() => postItem(product.name, product.image, product.price, 1)} className="btn-custom" color="link" type="submit" value="submit">+ Add to Cart</Button>
             </Card>
         </React.Fragment>
     );
@@ -89,6 +89,5 @@ function Homedecor(props) {
         </div>
     );
 }
-
 
 export default Homedecor;

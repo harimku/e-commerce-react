@@ -10,7 +10,7 @@ import Outdoor from './OutdoorComponent';
 import Pet from './PetComponent';
 import Cart from './CartComponent';
 import ItemInfo from './ItemInfoComponent';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postItem, removeItem, fetchHomepages, fetchHomedecors, fetchAutomotives, fetchElectronics, fetchFashions, fetchOutdoors, fetchPets, fetchCartitems } from '../redux/ActionCreators';
 

@@ -7,9 +7,28 @@ export const Items = (state = {
                                 }, action) => {
     switch (action.type) {
         case ActionTypes.ADD_ITEM:
+            /*
+            const checkrepeat = state.cartitems.filter(item => item.name === action.payload.name);
+            
+            if (checkrepeat.length === 0) {
+                const item = { id: state.cartitems.length + 1, ...action.payload };
+                const cartitems = [...state.cartitems, item];
+                return { ...state, errMess: null, cartitems }
+            } else {
+                alert('repeat item!');
+                const updatedItems = state.cartitems.map(item => 
+                    (item.name === action.payload.name) ?
+                    (item.quantity = item.quantity + action.payload.quantity) : item
+                );
+                state.cartitems = updatedItems;
+                return state;
+            } 
+            */
+            
             const item = { id: state.cartitems.length + 1, ...action.payload };
             const cartitems = [...state.cartitems, item];
             return { ...state, errMess: null, cartitems }
+           
         case ActionTypes.DELETE_ITEM:
             const items = state.cartitems.filter(item => item.id !== action.payload);
             state.cartitems = items;

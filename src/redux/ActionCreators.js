@@ -12,6 +12,47 @@ export const deleteItem = (item) => ({
     payload: item
 });
 
+export const updateItem = (item) => ({
+    type: ActionTypes.UPDATE_ITEM,
+    payload: item
+});
+
+export const putItem = (name, image, price, quantity, id) => dispatch => {
+
+    const newItem = {
+        name,
+        image,
+        price,
+        quantity,
+        id
+    };
+
+    return fetch(baseUrl + 'cartitems/' + id, {
+            method: "PUT",
+            body: JSON.stringify(newItem),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => {
+                if (response.ok) {
+                    return response;
+                } else {
+                    const error = new Error(`Error ${response.status}: ${response.statusText}`);
+                    error.response = response;
+                    throw error;
+                }
+            },
+            error => { throw error; }
+        )
+        .then(response => response.json())
+        .then(response => dispatch(updateItem(response)))
+        .catch(error => {
+            console.log('Add Item to Cart', error.message);
+            alert('Your item could not be added to cart\nError: ' + error.message);
+        });
+};
+
 export const removeItem = (id) => dispatch => {
 
     return fetch(baseUrl + 'cartitems/' + id, {
@@ -36,12 +77,13 @@ export const removeItem = (id) => dispatch => {
     });
 };
 
-export const postItem = (name, image, price) => dispatch => {
+export const postItem = (name, image, price, quantity) => dispatch => {
     
     const newItem = {
         name,
         image,
-        price
+        price,
+        quantity
     };
 
     return fetch(baseUrl + 'cartitems', {
